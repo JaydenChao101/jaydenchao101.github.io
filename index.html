@@ -1,45 +1,262 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayden's Blog</title>
+    <title>Jayden's Portfolio</title>
+    <meta name="description" content="Jayden的個人作品集，展示程式設計與技術專案">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+    <!-- 添加 Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 </head>
 <body>
+    <!-- 粒子背景 -->
+    <div id="particles-js" class="particles-container"></div>
+
     <header>
         <nav>
             <div class="container">
-                <a href="#" class="logo">JaydenChao101</a>
-                <ul class="nav-links">
-                    <li><a href="#about">關於我</a></li>
-                    <li><a href="#projects">專案</a></li>
-                    <li><a href="#blog">文章</a></li>
-                </ul>
+                <a href="#" class="logo">
+                    <div class="logo-animation">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span>JaydenChao101</span>
+                </a>
+                <div style="display: flex; align-items: center;">
+                    <button class="menu-toggle" aria-label="開啟選單">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="#projects" class="glowing-btn"><i class="fas fa-lightbulb"></i> 專案作品</a></li>
+                        <li><a href="#skills" class="glowing-btn"><i class="fas fa-tools"></i> 技能</a></li>
+                        <li><a href="#contact" class="glowing-btn"><i class="fas fa-envelope"></i> 聯絡我</a></li>
+                    </ul>
+                    <button class="theme-toggle" aria-label="切換主題">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class="container markdown-body" id="content">
-            <!-- Markdown 內容將在這裡渲染 -->
-        </div>
+        <!-- 英雄區塊 -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1>嗨，我是 <span class="highlight">Jayden</span></h1>
+                    <p class="typing-text">軟體開發者 | 程式設計師 | 技術愛好者</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="primary-btn"><i class="fas fa-project-diagram"></i> 查看專案</a>
+                        <a href="#contact" class="secondary-btn"><i class="fas fa-paper-plane"></i> 聯絡我</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 專案區塊 -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">我的專案</h2>
+                <div class="section-subtitle" data-aos="fade-up">這些是我引以為傲的作品</div>
+                
+                <div class="projects-grid">
+                    <!-- 專案卡片 1 -->
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="https://opengraph.githubassets.com/1/JaydenChao101/pyGrokAPI" alt="pyGrokAI 專案縮圖">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/JaydenChao101/pyGrokAPI" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>pyGrokAI</h3>
+                            <p>用於與 Grok AI 進行互動的 Python 庫，支持聊天和圖像生成功能。該庫提供了簡單的接口來發送請求並處理來自 Grok AI 的回應。</p>
+                            <div class="license-badge">
+                                <span><i class="fas fa-balance-scale"></i> GPLv3</span>
+                            </div>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>API</span>
+                                <span>AI</span>
+                                <span>Grok</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 技能區塊 -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">技能專長</h2>
+                <div class="section-subtitle" data-aos="fade-up">我擅長的技術領域</div>
+                
+                <div class="skills-container">
+                    <div class="skill-category" data-aos="fade-up">
+                        <h3>
+                            <!-- 原始圖標（如果不顯示則使用下面的備用選項） -->
+                            <i class="fab fa-python" aria-hidden="true"></i>
+                            <!-- 備用選項 -->
+                            <span class="python-icon-fallback" style="display: none;">Py</span>
+                            Python 開發
+                        </h3>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <div class="skill-name">數據分析</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">機器學習</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">網絡爬蟲</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">Web 開發</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">自動化腳本</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                        <h3><i class="fas fa-laptop-code"></i> Python 框架與工具</h3>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <div class="skill-name">Pandas/NumPy</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 93%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">TensorFlow</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">Django/Flask</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-name">BeautifulSoup/Scrapy</div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 89%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 聯絡區塊 -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">聯絡我</h2>
+                <div class="section-subtitle" data-aos="fade-up">有合作機會嗎？發訊息給我吧！</div>
+                
+                <div class="contact-content">
+                    <div class="contact-card" data-aos="fade-up">
+                        <a href="mailto:jaydenchao@proton.me" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>jaydenchao@proton.me</span>
+                        </a>
+                        <div class="social-links">
+                            <a href="https://github.com/JaydenChao101" target="_blank" aria-label="GitHub" class="social-btn">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://space.bilibili.com/1956516963" target="_blank" aria-label="Bilibili" class="social-btn">
+                                <i class="fab fa-bilibili"></i>
+                                <span>Bilibili</span>
+                            </a>
+                            <a href="https://www.youtube.com/@jaydenchao7269" target="_blank" aria-label="YouTube" class="social-btn">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/JaydenChao101" target="_blank">
+            <div class="social-links footer-social">
+                <a href="https://github.com/JaydenChao101" target="_blank" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
+                <a href="https://space.bilibili.com/1956516963" target="_blank" aria-label="Bilibili">
+                    <i class="fab fa-bilibili"></i>
+                </a>
+                <a href="https://www.youtube.com/@jaydenchao7269" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="mailto:jaydenchao@proton.me" aria-label="Email" id="email-btn">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
-            <p>&copy; 2024 JaydenChao101. All rights reserved.</p>
+            <p>&copy; 2025 JaydenChao101. 版權所有。</p>
         </div>
     </footer>
 
+    <!-- 模態窗口用於郵件 -->
+    <div id="email-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>聯絡我</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">您的名字</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">您的電子郵件</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">主旨</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">訊息</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">發送</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
