@@ -9,111 +9,115 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 粒子背景初始化
     if(document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#4f46e5"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#4f46e5",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
+        try {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
                         }
                     },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
+                    "color": {
+                        "value": "#4f46e5"
                     },
-                    "repulse": {
-                        "distance": 100,
-                        "duration": 0.4
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
                     },
-                    "push": {
-                        "particles_nb": 4
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
                     },
-                    "remove": {
-                        "particles_nb": 2
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4f46e5",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
                     }
-                }
-            },
-            "retina_detect": true
-        });
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 100,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        } catch (e) {
+            console.error("粒子效果初始化失敗", e);
+        }
     }
 
     // 主題切換功能
@@ -195,29 +199,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // 打開模態窗口
     emailBtn.addEventListener("click", function(e) {
         e.preventDefault();
-        modal.style.display = "block";
+        modal.style.display = "flex";
         document.body.style.overflow = "hidden"; // 防止背景滾動
     });
     
     // 關閉模態窗口
     closeBtn.addEventListener("click", function() {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto"; // 恢復背景滾動
+        closeModalWithAnimation();
     });
     
-    // 只在點擊模態窗口背景時關閉，而非滑鼠移動
-    modal.addEventListener("mousedown", function(e) {
-        // 只有當點擊區域為模態窗口背景(不是內容區)才關閉
-        if (e.target === modal && !modalContent.contains(e.target)) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
+    // 點擊模態窗口外部區域關閉
+    modal.addEventListener("click", function(e) {
+        if (e.target === modal) {
+            closeModalWithAnimation();
         }
     });
     
-    // 防止在模態窗口內點擊時關閉
+    // 阻止點擊內容區域時關閉窗口
     modalContent.addEventListener("click", function(e) {
-        e.stopPropagation(); // 阻止事件冒泡
+        e.stopPropagation();
     });
+    
+    // 帶有動畫的關閉效果
+    function closeModalWithAnimation() {
+        modalContent.style.opacity = "0";
+        modalContent.style.transform = "translateY(-20px)";
+        
+        setTimeout(() => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+            // 重置樣式以便下次打開
+            modalContent.style.opacity = "";
+            modalContent.style.transform = "";
+        }, 300);
+    }
     
     // 處理表單提交
     contactForm.addEventListener("submit", function(e) {
@@ -235,8 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open(mailtoLink, "_blank");
         
         // 關閉模態窗口
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        closeModalWithAnimation();
         
         // 清除表單
         contactForm.reset();
